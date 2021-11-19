@@ -19,6 +19,11 @@ func _ready():
 			"_on_opponent_dialogue_finished", [n])
 	remove_child(combat_screen)
 
+	var player = load("res://grid_movement/pawns/Character.tscn").instance()
+	player.position = Vector2( 416, 288 )
+	player.connect("player_moved", self, "_on_player_moved")
+	exploration_screen.get_node("Grid").add_child(player)
+	player.get_node("Camera2D").make_current()
 
 func start_combat(combat_actors):
 	remove_child($Exploration)
@@ -28,6 +33,10 @@ func start_combat(combat_actors):
 	combat_screen.show()
 	combat_screen.initialize(combat_actors)
 	$AnimationPlayer.play_backwards("fade")
+
+
+func _on_player_moved(player):
+	print("%s" % [player.position])
 
 
 func _on_opponent_dialogue_finished(opponent):

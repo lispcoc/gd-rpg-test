@@ -6,6 +6,8 @@ export(PackedScene) var combat_actor
 #warning-ignore:unused_class_variable
 var lost = false
 
+signal player_moved(player)
+
 func _ready():
 	update_look_direction(Vector2.RIGHT)
 
@@ -20,6 +22,7 @@ func _process(_delta):
 	if target_position:
 		move_to(target_position)
 		$Tween.start()
+		emit_signal("player_moved", self)
 	else:
 		bump()
 
