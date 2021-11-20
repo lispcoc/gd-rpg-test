@@ -35,7 +35,7 @@ script = ExtResource( 3 )
 dialogue_ui = NodePath("../DialogueUI")
 
 [node name="Opponent" parent="Grid" instance=ExtResource( 4 )]
-position = Vector2( 800, 480 )
+position = Vector2( 368, 240 )
 rotation = -1.5708
 script = ExtResource( 6 )
 combat_actor = ExtResource( 7 )

@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://core/pawns/Walker.gd" type="Script" id=1]
+[ext_resource path="res://core/pawns/Player.gd" type="Script" id=1]
 [ext_resource path="res://core/pawns/character.png" type="Texture" id=2]
 [ext_resource path="res://dynamicfont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://img/characters/にわとり.png" type="Texture" id=4]
+[ext_resource path="res://core/pawns/CharacterSprite.gd" type="Script" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "bump"
@@ -73,6 +75,13 @@ __meta__ = {
 anims/bump = SubResource( 1 )
 anims/walk = SubResource( 2 )
 
+[node name="CharacterSprite" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+hframes = 6
+vframes = 4
+frame = 23
+script = ExtResource( 5 )
+
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Pivot" type="Position2D" parent="."]
@@ -84,6 +93,7 @@ centered = false
 offset = Vector2( -32, -32 )
 
 [node name="Label" type="Label" parent="Pivot"]
+visible = false
 margin_left = -32.0
 margin_top = -32.0
 margin_right = 32.0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://core/Game.gd" type="Script" id=1]
 [ext_resource path="res://core/combat/Combat.tscn" type="PackedScene" id=2]
 [ext_resource path="res://core/grid_movement/Exploration.tscn" type="PackedScene" id=3]
 [ext_resource path="res://core/pawns/Character.tscn" type="PackedScene" id=4]
+[ext_resource path="res://core/img/Image.gd" type="Script" id=5]
 
 [sub_resource type="Animation" id=1]
 length = 0.5
@@ -47,3 +48,6 @@ visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 640, 360 )
+
+[node name="ImageManager" type="Node" parent="."]
+script = ExtResource( 5 )

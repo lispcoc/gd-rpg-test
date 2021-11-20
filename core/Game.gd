@@ -1,3 +1,4 @@
+class_name Game
 extends Node
 
 export(NodePath) var combat_screen
@@ -6,6 +7,8 @@ export(Resource) var character_class
 
 const PLAYER_WIN = "res://dialogue/dialogue_data/player_won.json"
 const PLAYER_LOSE = "res://dialogue/dialogue_data/player_lose.json"
+
+var player : Player = null
 
 func _ready():
 	exploration_screen = get_node(exploration_screen)
@@ -20,12 +23,31 @@ func _ready():
 			"_on_opponent_dialogue_finished", [n])
 	remove_child(combat_screen)
 
-	var player = character_class.instance()
-	player.init()
-	player.position = Vector2( 416, 288 )
+	player = character_class.instance()
 	player.connect("player_moved", self, "_on_player_moved")
-	exploration_screen.get_node("Grid").add_child(player)
+	place_player(player, exploration_screen, Vector2( 416, 288 ))
+
+func _process(_delta):
+	# キー入力処理
+	
+	# 方向入力
+	var dir = Vector2(
+		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
+		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	)
+	if dir.length () > 0.5:
+		dir = Direction.vector_to_coordinate(dir)
+	else:
+		dir = null
+
+	# プレイヤーを移動させる
+	if dir && player:
+		player.move(dir)
+
+func place_player(player, map, pos : Vector2):
 	player.get_node("Camera2D").make_current()
+	var grid = map.get_node("Grid")
+	grid.place(player, Vector2(16, 10))
 
 func start_combat(combat_actors):
 	remove_child($Exploration)

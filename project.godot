@@ -14,14 +14,38 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://core/combat/combatants/Combatant.gd"
 }, {
+"base": "Node",
+"class": "Direction",
+"language": "GDScript",
+"path": "res://core/Direction.gd"
+}, {
+"base": "Node",
+"class": "Game",
+"language": "GDScript",
+"path": "res://core/Game.gd"
+}, {
+"base": "Node",
+"class": "ImageManager",
+"language": "GDScript",
+"path": "res://core/img/Image.gd"
+}, {
 "base": "Node2D",
 "class": "Pawn",
 "language": "GDScript",
 "path": "res://core/pawns/Pawn.gd"
+}, {
+"base": "Pawn",
+"class": "Player",
+"language": "GDScript",
+"path": "res://core/pawns/Player.gd"
 } ]
 _global_script_class_icons={
 "Combatant": "",
-"Pawn": ""
+"Direction": "",
+"Game": "",
+"ImageManager": "",
+"Pawn": "",
+"Player": ""
 }
 
 [application]
