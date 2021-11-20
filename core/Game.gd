@@ -2,6 +2,7 @@ extends Node
 
 export(NodePath) var combat_screen
 export(NodePath) var exploration_screen
+export(Resource) var character_class
 
 const PLAYER_WIN = "res://dialogue/dialogue_data/player_won.json"
 const PLAYER_LOSE = "res://dialogue/dialogue_data/player_lose.json"
@@ -19,7 +20,8 @@ func _ready():
 			"_on_opponent_dialogue_finished", [n])
 	remove_child(combat_screen)
 
-	var player = load("res://grid_movement/pawns/Character.tscn").instance()
+	var player = character_class.instance()
+	player.init()
 	player.position = Vector2( 416, 288 )
 	player.connect("player_moved", self, "_on_player_moved")
 	exploration_screen.get_node("Grid").add_child(player)

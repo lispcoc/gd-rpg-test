@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Combatant",
 "language": "GDScript",
-"path": "res://combat/combatants/Combatant.gd"
+"path": "res://core/combat/combatants/Combatant.gd"
 }, {
 "base": "Node2D",
 "class": "Pawn",
 "language": "GDScript",
-"path": "res://grid_movement/pawns/Pawn.gd"
+"path": "res://core/pawns/Pawn.gd"
 } ]
 _global_script_class_icons={
 "Combatant": "",
