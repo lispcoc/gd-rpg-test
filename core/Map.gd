@@ -1,3 +1,4 @@
+tool
 class_name Map
 extends TileMap
 
@@ -5,6 +6,12 @@ enum CellType { NONE, OBSTACLE, ACTOR, OBJECT }
 
 export(Vector2) var start_pos = Vector2(0, 0)
 
+func _ready():
+	$Attribute.visible = false
+
+func _process(delta):
+	if Engine.editor_hint:
+		update_grid()
 
 func place(obj, pos : Vector2):
 	add_child(obj)
@@ -12,8 +19,10 @@ func place(obj, pos : Vector2):
 
 
 func update_grid():
-	for child in $Attribute.get_children():
-		$Attribute.set_cellv(world_to_map(child.position), child.type)
+	for pos in $Attribute.get_used_cells():
+		$Attribute.set_cellv(pos, -1)
+	for pos in $Wall.get_used_cells():
+		$Attribute.set_cellv(pos, CellType.OBSTACLE)
 	for child in $Objects.get_children():
 		$Attribute.set_cellv(world_to_map(child.position), child.type)
 
@@ -51,7 +60,6 @@ func request_examine(pawn, direction : Vector2):
 	update_grid()
 	var cell_start = world_to_map(pawn.position)
 	var cell_target = cell_start + direction
-	print("cell_start:%s cell_target:%s" % [cell_start, cell_target])
 	var target_pawn : Pawn = get_cell_pawn(cell_target)
 	if target_pawn:
 		target_pawn.on_examine(direction)

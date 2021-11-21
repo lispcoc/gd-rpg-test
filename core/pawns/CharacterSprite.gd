@@ -13,7 +13,7 @@ onready var g = get_node("/root/Game") as Game
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	load(g.img().default_character_sprite())
+	load(ImageManager.default_character_sprite())
 
 func load(file):
 	var res = load(file)
@@ -30,7 +30,6 @@ func next_frame():
 
 func set_dir(dir):
 	frame = sub_frame
-	print (dir)
 	match dir:
 		Enum.Direction.S:
 			frame += 0
@@ -50,7 +49,6 @@ func set_dir(dir):
 			frame += 21
 		Enum.Direction.W:
 			frame += 24
-	print(frame)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

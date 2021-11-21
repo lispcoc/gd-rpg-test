@@ -1,0 +1,25 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "こんにちは"
+		},
+		{
+			"call_node": {
+				"arguments": [
+
+				],
+				"method_name": "",
+				"target_node_path": ""
+			},
+			"event_id": "dialogic_042"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4 - DEV",
+		"file": "timeline-1637489312.json",
+		"name": "hello"
+	}
+}

@@ -1,4 +1,4 @@
-class_name ImageManager
+class_name ImageManagerClass
 extends Node
 
 var character_images = []
@@ -9,8 +9,6 @@ func _ready():
 	# キャラクタの画像をロード
 	dir_contents(character_images, "res://img/characters")
 	is_loaded = true
-	print("ImageManager.init() end")
-	print(character_images)
 
 func default_character_sprite():
 	return character_images[1]
