@@ -1,7 +1,6 @@
 class_name Player
 extends Pawn
 
-onready var parent = get_parent()
 #warning-ignore:unused_class_variable
 export(PackedScene) var combat_actor
 #warning-ignore:unused_class_variable
@@ -11,13 +10,15 @@ var tile_per_sec = 5.0
 var target_position = null
 var current_position = null
 
-var ImageManager : ImageManager
+onready var parent = get_parent()
+onready var g = get_node("/root/Game")
+
+var look_direction : Vector2 = Vector2(1,0)
 
 signal player_moved(player)
 
 func _ready():
-	ImageManager = get_node("/root/Game/ImageManager")
-	ImageManager.default_character_sprite()
+	$CharacterSprite.load(g.img().default_character_sprite())
 	update_look_direction(Vector2.RIGHT)
 
 func _process(_delta):
@@ -46,6 +47,7 @@ func move(input_direction : Vector2):
 
 
 func update_look_direction(direction):
+	look_direction = direction
 	$CharacterSprite.set_dir(Direction.vector_to_const(direction))
 	$Pivot/Sprite.rotation = direction.angle()
 
@@ -65,3 +67,13 @@ func move_to(target_position):
 
 func bump():
 	$AnimationPlayer.play("bump")
+
+
+func examine():
+	parent.request_examine(self, look_direction)
+
+
+func on_examine(dir : Vector2):
+	update_look_direction(-dir)
+	print("on_examine " , self)
+

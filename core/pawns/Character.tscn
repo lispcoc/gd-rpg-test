@@ -79,7 +79,6 @@ anims/walk = SubResource( 2 )
 texture = ExtResource( 4 )
 hframes = 6
 vframes = 4
-frame = 23
 script = ExtResource( 5 )
 
 [node name="Tween" type="Tween" parent="."]

@@ -4,16 +4,23 @@ extends Sprite
 # var a = 2
 # var b = "text"
 
-var file : String
 var sub_frame = 0
+
+const x_frame = 6
+const y_frame = 4
+
+onready var g = get_node("/root/Game") as Game
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	load(g.img().default_character_sprite())
 
-func load():
+func load(file):
 	var res = load(file)
 	texture = res
+	position = Vector2(-texture.get_width() / x_frame / 2, -texture.get_height() / y_frame + 16)
+	centered = false
+	
 
 func next_frame():
 	sub_frame = frame % 3
@@ -25,23 +32,23 @@ func set_dir(dir):
 	frame = sub_frame
 	print (dir)
 	match dir:
-		Direction.Const.S:
+		Enum.Direction.S:
 			frame += 0
-		Direction.Const.SW:
+		Enum.Direction.SW:
 			frame += 3
-		Direction.Const.W:
+		Enum.Direction.W:
 			frame += 6
-		Direction.Const.SE:
+		Enum.Direction.SE:
 			frame += 9
-		Direction.Const.E:
+		Enum.Direction.E:
 			frame += 12
-		Direction.Const.NW:
+		Enum.Direction.NW:
 			frame += 15
-		Direction.Const.N:
+		Enum.Direction.N:
 			frame += 18
-		Direction.Const.NE:
+		Enum.Direction.NE:
 			frame += 21
-		Direction.Const.W:
+		Enum.Direction.W:
 			frame += 24
 	print(frame)
 

@@ -15,3 +15,7 @@ Check out this demo on the asset library: https://godotengine.org/asset-library/
 ![Screenshot](screenshots/object.png)
 
 ![Screenshot](screenshots/battle.png)
+
+
+## 素材配布元
+ドット絵世界 http://yms.main.jp/

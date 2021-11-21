@@ -3,13 +3,17 @@ extends Node
 
 var character_images = []
 
+var is_loaded = false
 
 func _ready():
 	# キャラクタの画像をロード
 	dir_contents(character_images, "res://img/characters")
+	is_loaded = true
+	print("ImageManager.init() end")
+	print(character_images)
 
 func default_character_sprite():
-	return character_images[0]
+	return character_images[1]
 
 func dir_contents(array, path):
 	var dir = Directory.new()
