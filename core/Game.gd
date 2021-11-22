@@ -14,6 +14,8 @@ func _ready():
 func _process(_delta):
 	if is_dialog_running:
 		return
+	if is_window_running():
+		return
 	#
 	# キー入力処理
 	#
@@ -30,7 +32,7 @@ func _process(_delta):
 
 	if player:
 		#ボタン入力
-		if Input.is_action_pressed("ui_accept"):
+		if Input.is_action_just_pressed("ui_accept"):
 			player.examine()
 		# プレイヤーを移動させる
 		elif dir:
@@ -43,6 +45,18 @@ func place_player(new_player : Player, map : Map, pos = null):
 	map.place(new_player, pos)
 	new_player.get_node("Camera2D").make_current()
 	player = new_player
+
+
+func get_main_node():
+	return get_node_or_null("/root/Main")
+
+
+func is_window_running() -> bool:
+	var ret = false
+	var main = get_main_node()
+	if main:
+		ret = main.is_window_running()
+	return ret
 
 
 func _on_player_moved(player):

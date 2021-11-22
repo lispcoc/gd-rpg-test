@@ -65,6 +65,8 @@ current = true
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
 
+[node name="Window" type="Node" parent="."]
+
 [node name="Combat" parent="." instance=ExtResource( 2 )]
 visible = false
 

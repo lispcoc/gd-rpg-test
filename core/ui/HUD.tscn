@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://NotoSansJP-Regular.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://core/ui/Clock.gd" type="Script" id=2]
+[ext_resource path="res://core/ui/HUD.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=2]
 size = 20
@@ -15,14 +15,6 @@ default_font = SubResource( 2 )
 [node name="HUD" type="Control"]
 theme = SubResource( 3 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-visible = false
-margin_right = 296.0
-margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

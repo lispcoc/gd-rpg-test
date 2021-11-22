@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Button",
+"class": "CallSceneButton",
+"language": "GDScript",
+"path": "res://core/ui/Button/CallSceneButton.gd"
+}, {
 "base": "Node",
 "class": "Combatant",
 "language": "GDScript",
@@ -88,8 +93,14 @@ _global_script_classes=[ {
 "class": "RichLabel",
 "language": "GDScript",
 "path": "res://core/RichLabel.gd"
+}, {
+"base": "ItemList",
+"class": "Selector",
+"language": "GDScript",
+"path": "res://core/ui/Selector.gd"
 } ]
 _global_script_class_icons={
+"CallSceneButton": "",
 "Combatant": "",
 "DTS": "",
 "Dialogic": "",
@@ -105,7 +116,8 @@ _global_script_class_icons={
 "Map": "",
 "Pawn": "",
 "Player": "",
-"RichLabel": ""
+"RichLabel": "",
+"Selector": ""
 }
 
 [application]

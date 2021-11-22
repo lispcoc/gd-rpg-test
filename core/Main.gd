@@ -9,3 +9,7 @@ func _ready():
 	var player = character_tscn.instance()
 	Game.place_player(player, map)
 	pass
+
+
+func is_window_running() -> bool:
+	return $Window.get_child_count() > 0
