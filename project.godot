@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://core/ui/Button/CallSceneButton.gd"
 }, {
 "base": "Node",
+"class": "Character",
+"language": "GDScript",
+"path": "res://core/Character.gd"
+}, {
+"base": "Node",
 "class": "Combatant",
 "language": "GDScript",
 "path": "res://core/combat/combatants/Combatant.gd"
@@ -94,13 +99,24 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://core/RichLabel.gd"
 }, {
+"base": "Node",
+"class": "Rng",
+"language": "GDScript",
+"path": "res://core/Rng.gd"
+}, {
 "base": "ItemList",
 "class": "Selector",
 "language": "GDScript",
 "path": "res://core/ui/Selector.gd"
+}, {
+"base": "Node",
+"class": "System",
+"language": "GDScript",
+"path": "res://core/sys/System.gd"
 } ]
 _global_script_class_icons={
 "CallSceneButton": "",
+"Character": "",
 "Combatant": "",
 "DTS": "",
 "Dialogic": "",
@@ -117,7 +133,9 @@ _global_script_class_icons={
 "Pawn": "",
 "Player": "",
 "RichLabel": "",
-"Selector": ""
+"Rng": "",
+"Selector": "",
+"System": ""
 }
 
 [application]
@@ -136,6 +154,7 @@ ImageManager="*res://core/img/Image.gd"
 Time="*res://core/Time.gd"
 Weather="*res://core/Weather.gd"
 Game="*res://core/Game.gd"
+DataManager="*res://core/DataManager.gd"
 
 [display]
 
@@ -147,7 +166,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg", "res://addons/messagebox/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/TileSetCutter/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/messagebox/plugin.cfg" )
 
 [global]
 

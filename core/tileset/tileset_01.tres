@@ -9,6 +9,7 @@
 [ext_resource path="res://img/tileset/TownBF-PostTown-A5-2.png" type="Texture" id=7]
 
 [resource]
+resource_local_to_scene = true
 0/name = "BrightForest-A1.png 0"
 0/texture = ExtResource( 5 )
 0/tex_offset = Vector2( 0, 0 )

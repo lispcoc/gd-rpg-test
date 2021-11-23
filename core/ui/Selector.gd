@@ -5,6 +5,9 @@ extends ItemList
 export(Array, String) var selection
 export(Array, NodePath) var node
 
+func _init(_selection = ["None"]):
+	selection = _selection
+
 func _ready():
 	#grab_focus()
 	for n in selection:

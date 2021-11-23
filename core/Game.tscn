@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://core/Main.gd" type="Script" id=1]
 [ext_resource path="res://core/combat/Combat.tscn" type="PackedScene" id=2]
 [ext_resource path="res://core/world/draw_map_world.tres" type="World" id=3]
-[ext_resource path="res://core/pawns/Character.tscn" type="PackedScene" id=4]
 [ext_resource path="res://core/ui/HUD.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
@@ -26,7 +25,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-character_tscn = ExtResource( 4 )
 default_map = "res://data/map/grid_movement/Exploration.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -35,17 +33,6 @@ current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fade = SubResource( 1 )
-
-[node name="Transition" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="Transition"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
-color = Color( 0.0703125, 0.0703125, 0.0703125, 0 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MapView" type="Viewport" parent="."]
 size = Vector2( 1280, 720 )
@@ -70,4 +57,13 @@ current = true
 [node name="Combat" parent="." instance=ExtResource( 2 )]
 visible = false
 
-[node name="GameManager" type="Node" parent="."]
+[node name="Transition" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+color = Color( 0.0703125, 0.0703125, 0.0703125, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

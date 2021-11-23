@@ -4,6 +4,12 @@ export(NodePath) var combatants_node
 export(PackedScene) var info_scene
 
 func _ready():
+	var select = Selector.new(["a", "b"])
+	add_child(select)
+	var data = yield(select, "item_activated")
+	print(data)
+	remove_child(select)
+	return
 	combatants_node = get_node(combatants_node)
 
 

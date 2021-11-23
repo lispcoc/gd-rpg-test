@@ -11,7 +11,20 @@ var tile_per_sec = 5.0
 var target_position = null
 var current_position = null
 
-onready var parent = get_parent()
+var map = null
+
+
+export(String) var examine_event = ""
+signal timeline_start(player)
+
+
+func _init(_map = null):
+	._init()
+	set_map(_map)
+
+
+func set_map(_map):
+	map = _map
 
 
 func _process(_delta):
@@ -52,9 +65,16 @@ func on_touch(dir : Vector2):
 
 
 func on_examine(dir : Vector2):
+	print("on_examine " , self)
 	var event = get_node_or_null("OnExamineEvent")
 	if event:
 		event.main(self, dir)
+	if examine_event != "":
+		var new_dialog = Dialogic.start(examine_event)
+		add_child(new_dialog)
+		connect("timeline_start", Game, "_on_timeline_start")
+		emit_signal("timeline_start", examine_event)
+		new_dialog.connect("timeline_end", Game, "_on_timeline_end")
 
 
 func bump():

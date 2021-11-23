@@ -8,6 +8,7 @@ var is_dialog_running = false
 
 
 func _ready():
+	DataManager.init()
 	pass
 
 
@@ -39,6 +40,10 @@ func _process(_delta):
 			player.move(dir)
 
 
+func get_current_save() -> int:
+	return 0
+
+
 func place_player(new_player : Player, map : Map, pos = null):
 	if not pos:
 		pos = map.start_pos
@@ -61,7 +66,6 @@ func is_window_running() -> bool:
 
 func _on_player_moved(player):
 	Time.increment_second()
-	pass
 
 
 func _on_timeline_start(timeline_name):
