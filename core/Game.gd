@@ -3,12 +3,17 @@ extends Node
 const input_delay_time = 0.2
 
 
-var player : Player = null
+var player : CharacterPawn = null
 var is_dialog_running = false
+var is_data_loaded = false
 
 
 func _ready():
 	DataManager.init()
+	ImageManager.init()
+	if get_main_node():
+		get_main_node().start()
+	is_data_loaded = true
 	pass
 
 
@@ -44,11 +49,11 @@ func get_current_save() -> int:
 	return 0
 
 
-func place_player(new_player : Player, map : Map, pos = null):
+func place_player(new_player : CharacterPawn, map : Map, pos = null):
 	if not pos:
 		pos = map.start_pos
 	map.place(new_player, pos)
-	new_player.get_node("Camera2D").make_current()
+	new_player.activate_camera()
 	player = new_player
 
 

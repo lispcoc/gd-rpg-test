@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://core/pawns/CharacterSprite.gd" type="Script" id=1]
+[ext_resource path="res://img/characters/にわとり.png" type="Texture" id=2]
+
+[node name="CharacterSprite" type="Sprite"]
+texture = ExtResource( 2 )
+hframes = 6
+vframes = 4
+script = ExtResource( 1 )

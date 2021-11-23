@@ -1,13 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://core/tileset/grid_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://core/tileset/tileset_01.tres" type="TileSet" id=2]
-[ext_resource path="res://core/pawns/Character.tscn" type="PackedScene" id=3]
-[ext_resource path="res://core/combat/combatants/Opponent.tscn" type="PackedScene" id=4]
-[ext_resource path="res://core/dialogue/dialogue_player/DialoguePlayer.tscn" type="PackedScene" id=5]
-[ext_resource path="res://core/pawns/Opponent.gd" type="Script" id=7]
-[ext_resource path="res://data/map/grid_movement/test.gd" type="Script" id=8]
-[ext_resource path="res://core/pawns/Pawn.gd" type="Script" id=9]
+[ext_resource path="res://core/pawns/CharacterPawn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://core/pawns/Pawn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://core/Map.gd" type="Script" id=10]
 
 [node name="Map" type="TileMap"]
@@ -72,45 +68,21 @@ tile_data = PoolIntArray( 1, 1, 1, 2, 1, 2, 3, 1, 3, 13, 1, 1, 14, 1, 2, 15, 1, 
 [node name="Objects" type="CanvasLayer" parent="."]
 follow_viewport_enable = true
 
-[node name="Opponent" parent="Objects" instance=ExtResource( 3 )]
-position = Vector2( 592, 271 )
-z_index = 271
-script = ExtResource( 7 )
-combat_actor = ExtResource( 4 )
-
-[node name="DialoguePlayer" parent="Objects/Opponent" instance=ExtResource( 5 )]
-dialogue_file = "res://dialogue/dialogue_data/npc.json"
-
-[node name="Timer" type="Timer" parent="Objects/Opponent"]
-one_shot = true
-autostart = true
-
-[node name="OnTouchEvent" type="Node" parent="Objects/Opponent"]
-script = ExtResource( 8 )
-
-[node name="Object" type="Node2D" parent="Objects"]
+[node name="Pawn" parent="Objects" instance=ExtResource( 4 )]
 position = Vector2( 176, 336 )
 z_index = 336
-script = ExtResource( 9 )
 examine_event = "hello"
 
-[node name="DialoguePlayer" parent="Objects/Object" instance=ExtResource( 5 )]
-dialogue_file = "res://dialogue/dialogue_data/object.json"
-
-[node name="OnTouchEvent" type="Node" parent="Objects/Object"]
-script = ExtResource( 8 )
-
-[node name="Mob1" parent="Objects" instance=ExtResource( 3 )]
-position = Vector2( 336, 336 )
+[node name="Character" parent="Objects" instance=ExtResource( 3 )]
+position = Vector2( 208, 336 )
 z_index = 336
-examine_event = "fade"
+examine_event = "hello"
 
 [node name="Meta" type="CanvasLayer" parent="."]
 layer = 100
 follow_viewport_enable = true
 
 [node name="Attribute" type="TileMap" parent="Meta"]
-visible = false
 z_index = 10
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
@@ -119,4 +91,4 @@ cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
 centered_textures = true
 collision_layer = 3
 format = 1
-tile_data = PoolIntArray( 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196620, 1, 0, 196621, 1, 0, 196622, 1, 0, 196623, 1, 0, 196624, 1, 0, 262144, 1, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262156, 1, 0, 262157, 1, 0, 262158, 1, 0, 262159, 1, 0, 262160, 1, 0, 327680, 1, 0, 327681, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327692, 1, 0, 327693, 1, 0, 327694, 1, 0, 327695, 1, 0, 327696, 1, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393228, 1, 0, 393229, 1, 0, 393230, 1, 0, 393231, 1, 0, 393232, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524306, 2, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 655365, 2, 0, 655370, 2, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0 )
+tile_data = PoolIntArray( 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196620, 1, 0, 196621, 1, 0, 196622, 1, 0, 196623, 1, 0, 196624, 1, 0, 262144, 1, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262156, 1, 0, 262157, 1, 0, 262158, 1, 0, 262159, 1, 0, 262160, 1, 0, 327680, 1, 0, 327681, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327692, 1, 0, 327693, 1, 0, 327694, 1, 0, 327695, 1, 0, 327696, 1, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393228, 1, 0, 393229, 1, 0, 393230, 1, 0, 393231, 1, 0, 393232, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 655365, 2, 0, 655366, 2, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0 )

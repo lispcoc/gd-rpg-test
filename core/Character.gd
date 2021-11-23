@@ -1,7 +1,7 @@
 extends Node
 class_name Character
 
-export(PackedScene) var pawn = preload("pawns/Character.tscn")
+export(PackedScene) var pawn = preload("pawns/CharacterPawn.tscn")
 
 var _data : Dictionary = {
 	"name" : "キャラクター",

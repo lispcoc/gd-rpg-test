@@ -9,13 +9,11 @@ var sub_frame = 0
 const x_frame = 6
 const y_frame = 4
 
-onready var g = get_node("/root/Game") as Game
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	load(ImageManager.default_character_sprite())
+	pass
 
-func load(file):
+func load_texture(file):
 	var res = load(file)
 	texture = res
 	position = Vector2(-texture.get_width() / x_frame / 2, -texture.get_height() / y_frame + 16)

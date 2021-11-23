@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://core/Main.gd" type="Script" id=1]
-[ext_resource path="res://core/combat/Combat.tscn" type="PackedScene" id=2]
 [ext_resource path="res://core/world/draw_map_world.tres" type="World" id=3]
 [ext_resource path="res://core/ui/HUD.tscn" type="PackedScene" id=5]
 
@@ -53,9 +52,6 @@ current = true
 [node name="HUD" parent="." instance=ExtResource( 5 )]
 
 [node name="Window" type="Node" parent="."]
-
-[node name="Combat" parent="." instance=ExtResource( 2 )]
-visible = false
 
 [node name="Transition" type="CanvasLayer" parent="."]
 

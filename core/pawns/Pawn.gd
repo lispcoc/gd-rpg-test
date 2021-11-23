@@ -1,20 +1,19 @@
 class_name Pawn
 extends Node2D
 
-#warning-ignore:unused_class_variable
-export(Enum.CellType) var type = Enum.CellType.ACTOR
-
 var active = true setget set_active
-
 var move_time = 0.0
 var tile_per_sec = 5.0
 var target_position = null
 var current_position = null
-
 var map = null
 
 
+export(Enum.CellType) var type = Enum.CellType.ACTOR
+export(String, FILE) var texture
 export(String) var examine_event = ""
+
+
 signal timeline_start(player)
 
 
@@ -66,9 +65,6 @@ func on_touch(dir : Vector2):
 
 func on_examine(dir : Vector2):
 	print("on_examine " , self)
-	var event = get_node_or_null("OnExamineEvent")
-	if event:
-		event.main(self, dir)
 	if examine_event != "":
 		var new_dialog = Dialogic.start(examine_event)
 		add_child(new_dialog)

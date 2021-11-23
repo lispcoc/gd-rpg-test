@@ -1,7 +1,7 @@
 extends Node
 
-var default_characters_folder = "res://data/json/characters/"
-var enemies_folder = "res://data/json/characters/"
+var default_characters_folder = "./data/json/characters/"
+var enemies_folder = "./data/json/characters/"
 var characters := []
 var enemies := []
 

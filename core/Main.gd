@@ -2,12 +2,11 @@ extends ViewportContainer
 
 export(String, FILE, "*.tscn") var default_map
 
-func _ready():
+func start():
 	var map = load(default_map).instance()
 	$MapView.add_child(map)
 	
-	var player = DataManager.characters[0].generate_pawn()
-	Game.place_player(player, map)
+	Game.place_player(DataManager.characters[0].generate_pawn(), map)
 	pass
 
 

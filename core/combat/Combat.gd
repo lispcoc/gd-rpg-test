@@ -19,13 +19,13 @@ func _ready():
 	num = 0
 	for pawn in players_pawn:
 		$PlayerPlaceHolder.get_children()[num].add_child(pawn)
-		(pawn as Player).update_look_direction(Vector2(-1, 0))
+		(pawn as CharacterPawn).update_look_direction(Vector2(-1, 0))
 		num+=1
 
 	num = 0
 	for pawn in enemies_pawn:
 		$EnemyPlaceHolder.get_children()[num].add_child(pawn)
-		(pawn as Player).update_look_direction(Vector2(-1, 0))
+		(pawn as CharacterPawn).update_look_direction(Vector2(-1, 0))
 		num+=1
 
 	$Camera2D.make_current()

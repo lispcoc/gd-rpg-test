@@ -1,14 +1,10 @@
-class_name ImageManagerClass
 extends Node
 
 var character_images = []
 
-var is_loaded = false
-
-func _ready():
+func init():
 	# キャラクタの画像をロード
-	dir_contents(character_images, "res://img/characters")
-	is_loaded = true
+	dir_contents(character_images, "./img/characters/")
 
 func default_character_sprite():
 	return character_images[1]
