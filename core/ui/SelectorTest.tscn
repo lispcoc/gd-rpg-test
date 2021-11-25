@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://core/ui/Selector.gd" type="Script" id=1]
+[ext_resource path="res://theme/theme.tres" type="Theme" id=2]
+
+[node name="Node" type="Node"]
+
+[node name="Selector2" type="ItemList" parent="."]
+anchor_right = 0.958
+anchor_bottom = 3.333
+margin_left = 192.0
+margin_right = -746.24
+margin_bottom = -2359.76
+theme = ExtResource( 2 )
+auto_height = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+selection = [ "1", "1", "1" ]
+
+[node name="Selector" type="ItemList" parent="."]
+margin_right = 192.0
+margin_bottom = 24.0
+auto_height = true
+max_columns = 0
+same_column_width = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+selection = [ "a", "a", "a", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "a", "a", "a", "a", "a", "a" ]
+child = NodePath("../Selector2")
+
+[node name="Control" type="Control" parent="Selector"]
+margin_left = 192.0
+margin_right = 232.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
