@@ -1,11 +1,12 @@
-extends Node
 class_name Character
+extends Node
 
 export(PackedScene) var pawn = preload("pawns/CharacterPawn.tscn")
 
 var _data : Dictionary = {
-	"name" : "キャラクター",
+	"cname" : "キャラクター",
 	"level" : 1,
+	"experience" : 0,
 	"hp" : 65535,
 	"mp" : 65535,
 	"strength" : 1,
@@ -16,7 +17,9 @@ var _data : Dictionary = {
 	"charisma" : 1,
 }
 
+var cname setget _set_name, _get_name
 var level setget _set_level, _get_level
+var experience setget _set_experience, _get_experience
 var hp setget _set_hp, _get_hp
 var mp setget _set_mp, _get_mp
 var strength setget _set_strength, _get_strength
@@ -34,18 +37,6 @@ func generate_pawn():
 	return pawn.instance()
 
 
-func get_max_hp() -> int:
-	var base_hp = 20
-	var growth_hp = (constitution * 2 + strength) / 6
-	return int(base_hp + growth_hp * level)
-
-
-func get_max_mp() -> int:
-	var base_mp = 20
-	var growth_mp = (intelligence * 2 + wisdom) / 6
-	return int(base_mp + growth_mp * level)
-
-
 #
 # コンストラクタ
 #
@@ -59,6 +50,60 @@ func _init(_number = 0, dict = {} as Dictionary):
 func json_string():
 	return JSON.print(_data, "  ")
 
+#
+# ステータス関係
+#
+func get_max_hp() -> int:
+	var base_hp = 20
+	var growth_hp = (constitution * 2 + strength) / 6
+	return int(base_hp + growth_hp * level)
+
+func get_max_mp() -> int:
+	var base_mp = 20
+	var growth_mp = (get_eff_intelligence() * 2 + get_eff_wisdom()) / 6
+	return int(base_mp + growth_mp * level)
+
+func get_atk() -> int:
+	var weapon : Item = null
+	var growth_atk = (get_eff_strength() * 2 + get_eff_dexterity()) / 6
+	var base_atk = growth_atk * 4
+	if not weapon:
+		# 装備なし
+		return int(base_atk + growth_atk * level)
+	return 0
+
+func get_def() -> int:
+	return 0
+
+func get_eff_strength():
+	return strength
+
+func get_eff_constitution():
+	return constitution
+
+func get_eff_dexterity():
+	return dexterity
+
+func get_eff_intelligence():
+	return intelligence
+
+func get_eff_wisdom():
+	return wisdom
+
+# 経験値/Lv関係
+func next_experience():
+	return int(100 * 1.5^(level - 1))
+
+
+func add_experience(value : int):
+	experience += value
+	while experience >= next_experience():
+		experience -= next_experience()
+		level_up()
+
+func level_up():
+	level += 1
+	print("%s level up to %d.", [cname, level])
 
 #
 # Setter & Getter
@@ -77,10 +122,20 @@ func _get_mp():
 		hp = get_max_mp()
 	return _data["mp"]
 
+func _set_name(new_value : String):
+	_data["name"] = new_value
+func _get_name():
+	return _data["name"]
+
 func _set_level(new_value):
 	_data["level"] = new_value
 func _get_level():
 	return _data["level"]
+
+func _set_experience(new_value):
+	_data["experience"] = new_value
+func _get_experience():
+	return _data["experience"]
 
 func _set_strength(new_value):
 	_data["strength"] = new_value
