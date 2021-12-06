@@ -3,8 +3,6 @@ extends Node
 
 enum CellType { NONE, OBSTACLE, ACTOR, OBJECT }
 
-enum Direction { E, NE, N, NW, W, SW, S, SE }
-
 
 # Declare member variables here. Examples:
 # var a = 2

@@ -15,6 +15,15 @@ var _data : Dictionary = {
 	"intelligence" : 1,
 	"wisdom" : 1,
 	"charisma" : 1,
+	"image": {
+		"ベース": "ベースA",
+		"前髪": "01a_A",
+		"服上": "シャツ00a_A",
+		"服下": "スカート01a_A",
+		"顔": "なし",
+		"髪": "ショート01_A",
+		"髪+": "ツインa_長01_A",
+	}
 }
 
 var cname setget _set_name, _get_name
@@ -34,7 +43,9 @@ var number = 0
 
 
 func generate_pawn():
-	return pawn.instance()
+	var _pawn := (pawn.instance() as CharacterPawn)
+	_pawn.load_custom_character(_data["image"])
+	return _pawn
 
 
 #

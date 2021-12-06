@@ -1,0 +1,31 @@
+[
+    {
+        "id": "attack",
+        "name": "通常攻撃",
+        "arts_type": "attack",
+        "target": "single",
+        "bp": 0,
+        "power": 100,
+        "function": "attack_standard"
+    },
+    {
+        "id": "defence",
+        "name": "防御",
+        "arts_type": "defence",
+        "target": "self",
+        "add_bufs": ["defence"],
+        "bp": 0,
+        "power": 100,
+        "function": "defence"
+    },
+    {
+        "id": "defence",
+        "name": "ヒール",
+        "arts_type": "heal",
+        "target": "single",
+        "bp": 0,
+        "mp": 5,
+        "power": 100,
+        "function": "heal_standard"
+    },
+]

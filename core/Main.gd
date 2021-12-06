@@ -2,7 +2,9 @@ extends ViewportContainer
 
 export(String, FILE, "*.tscn") var default_map
 
-func start():
+func _ready():
+	while not Game.is_data_loaded:
+		yield()
 	var map = load(default_map).instance()
 	$MapView.add_child(map)
 	

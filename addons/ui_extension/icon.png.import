@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ウルファール.png-5d03fb033d04f624588001af7196a69b.stex"
+path="res://.import/icon.png-99f664c1fcf66807e049232560a0d33e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/characters/ウルファール.png"
-dest_files=[ "res://.import/ウルファール.png-5d03fb033d04f624588001af7196a69b.stex" ]
+source_file="res://addons/ui_extension/icon.png"
+dest_files=[ "res://.import/icon.png-99f664c1fcf66807e049232560a0d33e.stex" ]
 
 [params]
 

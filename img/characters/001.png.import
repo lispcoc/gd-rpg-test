@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/にわとり.png-a324cdb72dc66e7902c65d37dee8dfbc.stex"
+path="res://.import/001.png-f91c91d854279ee3d939cb5f8aef120f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/characters/にわとり.png"
-dest_files=[ "res://.import/にわとり.png-a324cdb72dc66e7902c65d37dee8dfbc.stex" ]
+source_file="res://img/characters/001.png"
+dest_files=[ "res://.import/001.png-f91c91d854279ee3d939cb5f8aef120f.stex" ]
 
 [params]
 

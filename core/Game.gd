@@ -11,13 +11,11 @@ var is_data_loaded = false
 func _ready():
 	DataManager.init()
 	ImageManager.init()
-	if get_main_node():
-		get_main_node().start()
 	is_data_loaded = true
 	pass
 
 
-func _process(_delta):
+func _process(delta):
 	if is_dialog_running:
 		return
 	if is_window_running():

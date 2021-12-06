@@ -1,0 +1,104 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+lifetime_randomness = 0.53
+emission_shape = 5
+emission_ring_radius = 2.0
+emission_ring_inner_radius = 0.0
+emission_ring_height = 1.0
+flag_disable_z = true
+spread = 17.9
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 108.04
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color = Color( 1, 0.796078, 0.368627, 1 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 1
+emission_sphere_radius = 4.0
+flag_disable_z = true
+spread = 19.76
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 182.8
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 2.0
+scale_random = 1.0
+color = Color( 1, 0.333333, 0.333333, 1 )
+hue_variation = -1.0
+hue_variation_random = 1.0
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 640, 384 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 656, 384 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "新規アニメーション"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 640, 384 ), Vector2( 608, 384 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 656, 384 ), Vector2( 608, 384 ) ]
+}
+
+[node name="Node" type="Node"]
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+modulate = Color( 1, 0.662745, 0.662745, 1 )
+position = Vector2( 656, 384 )
+amount = 500
+lifetime = 0.7
+process_material = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+modulate = Color( 1, 0.160784, 0.160784, 1 )
+position = Vector2( 640, 384 )
+amount = 200
+lifetime = 0.5
+process_material = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+"anims/新規アニメーション" = SubResource( 4 )

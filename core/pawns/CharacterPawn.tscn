@@ -29,4 +29,3 @@ anims/walk = SubResource( 2 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-current = true

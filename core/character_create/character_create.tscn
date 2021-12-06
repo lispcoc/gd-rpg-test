@@ -1,0 +1,89 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://core/character_create/character_create.gd" type="Script" id=1]
+
+[node name="Node" type="Node"]
+script = ExtResource( 1 )
+preview = NodePath("Panel/ColorRect/Preview")
+container_node = NodePath("VBoxContainer/GridContainer")
+first_focus = NodePath("VBoxContainer/Accept")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 640, 360 )
+current = true
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 16.0
+margin_top = 32.0
+margin_right = 1264.0
+margin_bottom = 716.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 176.0
+margin_bottom = 190.0
+color = Color( 0.647059, 0.647059, 0.647059, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Preview" type="Node2D" parent="Panel/ColorRect"]
+position = Vector2( 72, 112 )
+scale = Vector2( 2, 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 240.0
+margin_top = 112.0
+margin_right = 1024.0
+margin_bottom = 656.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+margin_right = 784.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Accept" type="Button" parent="VBoxContainer"]
+margin_top = 4.0
+margin_right = 784.0
+margin_bottom = 34.0
+rect_pivot_offset = Vector2( 103, 24 )
+text = "決定"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cancel" type="Button" parent="VBoxContainer"]
+margin_top = 38.0
+margin_right = 784.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 103, 24 )
+text = "キャンセル"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
+visible = false
+margin_left = 304.0
+margin_top = 40.0
+margin_right = 512.0
+margin_bottom = 96.0
+text = "色の変更"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
