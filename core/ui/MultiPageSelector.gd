@@ -1,4 +1,4 @@
-extends Control
+extends NinePatchRect
 class_name MultiPageSelector
 
 
@@ -11,27 +11,32 @@ signal item_activated(index)
 #signal rmb_clicked(at_position)
 
 export(Array, String) var selection
+export(int) var columns : int = 1
 
 var _btn = []
 var _current_btn = []
 var _meta = []
 var page = 0
 var lines = 3
-var container : VBoxContainer
+var container : GridContainer
 
 func _init(_selection = ["None"], _child : NodePath = ""):
 	selection = _selection
 
 
 func _ready():
-	container = VBoxContainer.new()
+	container = GridContainer.new()
 	add_child(container)
+	container.rect_position = Vector2(patch_margin_left, patch_margin_top)
+	container.columns = columns
 	for n in selection:
 		add_item(n)
 	grab_focus()
 
 
 func _process(delta):
+	rect_size = container.rect_size
+	rect_size += Vector2(patch_margin_left + patch_margin_right, patch_margin_top + patch_margin_bottom)
 	pass
 
 
